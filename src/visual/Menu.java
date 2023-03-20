@@ -111,9 +111,17 @@ public class Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {// Este es el boton que iniciara el juego y mostrara la interfaz del juego del tablero 
+        int jugadores = Integer.parseInt(jComboBox2.getSelectedItem().toString());
+        int dados = Integer.parseInt(jComboBox1.getSelectedItem().toString());
+        System.out.println(jugadores);
+        System.out.println(dados);
+
+        Tablero tablero = new Tablero(jugadores, dados);
+        tablero.setVisible(true);
+        this.setVisible(false);
+        
+    }
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
@@ -135,4 +143,5 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+
 }

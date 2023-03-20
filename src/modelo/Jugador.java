@@ -1,5 +1,7 @@
 package modelo;
 
-public class Jugador {
+public class Jugador extends Fichas{
+    String nombre;
+    int turno;
     
 }
