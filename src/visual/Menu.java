@@ -72,9 +72,9 @@ public class Menu extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        Ddos = new javax.swing.JComboBox<>();
+        Jugadores = new javax.swing.JComboBox<>();
+        InicioJuego = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -83,7 +83,7 @@ public class Menu extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/serpienteyescaleras.png"))); // NOI18N
         jLabel2.setText("jLabel2");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 0, 340, 510));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 0, 380, 510));
 
         jLabel1.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(225, 41, 65));
@@ -103,35 +103,33 @@ public class Menu extends javax.swing.JFrame {
         jLabel5.setText("Jugadores");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, -1, 20));
 
-        jComboBox1.setBackground(new java.awt.Color(195, 219, 71));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        Ddos.setBackground(new java.awt.Color(195, 219, 71));
+        Ddos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Ddos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                DdosActionPerformed(evt);
             }
         });
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(482, 230, 100, -1));
+        jPanel1.add(Ddos, new org.netbeans.lib.awtextra.AbsoluteConstraints(482, 230, 100, -1));
 
-        jComboBox2.setBackground(new java.awt.Color(195, 219, 71));
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+        Jugadores.setBackground(new java.awt.Color(195, 219, 71));
+        Jugadores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Jugadores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox2ActionPerformed(evt);
+                JugadoresActionPerformed(evt);
             }
         });
-        jPanel1.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(212, 230, 100, -1));
+        jPanel1.add(Jugadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(212, 230, 100, -1));
 
-        jButton1.setBackground(new java.awt.Color(195, 219, 71));
-        jButton1.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
-        jButton1.setText("Empieza a jugar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        InicioJuego.setBackground(new java.awt.Color(195, 219, 71));
+        InicioJuego.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
+        InicioJuego.setText("Empieza a jugar");
+        InicioJuego.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-            // cuando se presione el boton empieza a jugar se ejecutara el metodo menuJugar
-                menuJugar();
-                            
+                InicioJuegoActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 340, -1, 50));
+        jPanel1.add(InicioJuego, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 340, -1, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -141,9 +139,7 @@ public class Menu extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 12, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 504, Short.MAX_VALUE)
         );
 
         pack();
@@ -154,16 +150,16 @@ public class Menu extends javax.swing.JFrame {
     }
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {// Este es el boton que iniciara el juego y mostrara la interfaz del juego del tablero 
-        int jugadores = Integer.parseInt(jComboBox2.getSelectedItem().toString());
-        int dados = Integer.parseInt(jComboBox1.getSelectedItem().toString());
-        Tablero tablero = new Tablero();
-        tablero.crearTablero();
-        tablero.mostrarTablero();
+        int jugadores = Integer.parseInt(Jugadores.getSelectedItem().toString());
+        int dados = Integer.parseInt(Ddos.getSelectedItem().toString());
+        this.setVisible(false);
+
+
     }
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void DdosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DdosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_DdosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -171,9 +167,9 @@ public class Menu extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> Ddos;
+    private javax.swing.JButton InicioJuego;
+    private javax.swing.JComboBox<String> Jugadores;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
