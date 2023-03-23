@@ -4,6 +4,12 @@
  */
 package visual;
 
+import modelo.*;
+import javax.swing.JButton;
+import javax.swing.plaf.basic.BasicOptionPaneUI.ButtonActionListener;
+import javax.swing.JOptionPane;
+
+
 /**
  *
  * @author juanpbaucl514
@@ -56,13 +62,18 @@ public class Menu extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        Background.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 470, -1, -1));
+        Background.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 470, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Roboto Medium", 3, 36)); // NOI18N
         jLabel3.setText("Juego Serpientes y escaleras :D");
         Background.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, -1, -1));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
         Background.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 260, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Roboto Light", 1, 24)); // NOI18N
@@ -103,16 +114,50 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        // Colocar link del repositorio
+       
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        // Colocar mi info
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        
+        // Pidiendole al usuario su nombre para el juego segun la cantidad de jugador seleccionada en el combobox
+        //String nombre = JOptionPane.showInputDialog("Ingrese su nombre");
+
+        
+        
+        // Creando el jugador
+
+
+        // Agregando el jugador a la lista de jugadores en la parte inferior del tablero
+
+        // Iniciando el Tablero de juego
+        TableroUI tablero = new TableroUI();
+        tablero.setVisible(true);
+
+        // Cerrando la ventana de configuracion
+        this.dispose();
+
+        // comprobando los jugadores seleccionados
+        
+
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {
+        // Opciones de jugadores
+        
+
+
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    public void agregarJugador() {
+        String nombre = JOptionPane.showInputDialog("Ingrese su nombre");
+        Jugadores jugador = new Jugadores(nombre);
+        jugador.agregarJugador(nombre);
+    }
 
     /**
      * @param args the command line arguments
