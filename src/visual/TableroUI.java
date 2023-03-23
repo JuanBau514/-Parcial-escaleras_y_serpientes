@@ -23,7 +23,7 @@ public class TableroUI extends JFrame {
         TableroModelo modeloTabla = new TableroModelo(); // Creamos el modelo de la tabla
         tabla = new JTable(modeloTabla); // Creamos la tabla
         tabla.setDefaultRenderer(Object.class, new TableroRenderer()); // Establecemos el renderizador de la tabla
-        tabla.setRowHeight(50); // Establecemos el alto de las filas
+        tabla.setRowHeight(80); // Establecemos el alto de las filas
         
         tabla.setShowGrid(false); // Ocultamos las lineas de la tabla
         

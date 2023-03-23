@@ -24,6 +24,7 @@ class TableroRenderer extends JLabel implements TableCellRenderer {
         // Establece el color de fondo y el tamaño de la fuente
         setBackground(backgroundColor);
         setFont(getFont().deriveFont((float) size));
+        setHorizontalAlignment(JLabel.CENTER);     // Establece la alineación horizontal a la derecha
 
         // Establece el texto en la casilla
         setText(value != null ? value.toString() : "");

@@ -15,7 +15,6 @@ public class controlador {
 
     public void inicio() {
 
-        menu.menuPrincipal();
         tablero.setVisible(true);
         
    
