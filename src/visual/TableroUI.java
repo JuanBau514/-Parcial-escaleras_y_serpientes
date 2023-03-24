@@ -1,9 +1,10 @@
 package visual;
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.BorderLayout;
-import modelo.TableroModelo;
-import java.awt.Frame;
 
+import modelo.Jugadores;
+import modelo.TableroModelo;
 
 public class TableroUI extends JFrame {
 
@@ -55,7 +56,22 @@ public class TableroUI extends JFrame {
         //mostrando informacion del jugador en el panel
         infoLabel.setText("Informacion del jugador");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
     }
     
+    // colocando el caracter en la posicion del jugador
+    public void colocarFigura(int posicionX, int posicionY) {
+        tabla.setValueAt("X", posicionX, posicionY); // colocando el caracter en la posicion del jugador
+        tabla.setValueAt("O", posicionX, posicionY + 1); // colocando el caracter en la posicion del jugador
+        tabla.setValueAt("X", posicionX, posicionY + 2); // colocando el caracter en la posicion del jugador
+        tabla.setValueAt("O", posicionX, posicionY + 3); // colocando el caracter en la posicion del jugador
+    }
+
+    // Obtener el modelo de la tabla
+    
+    // Obtener la posición de la ficha del jugador
+ 
+
+    // Actualizar el valor de la celda correspondiente
+
+
 }

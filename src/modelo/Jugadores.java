@@ -1,11 +1,7 @@
 package modelo;
-import visual.*;
 import javax.swing.*;
 import java.awt.BorderLayout;
-import modelo.TableroModelo;
-import java.awt.Frame;
-
-import visual.CajasMensaje;
+import java.awt.Color;
 
 public class Jugadores extends TableroModelo{
 
@@ -13,16 +9,21 @@ public class Jugadores extends TableroModelo{
     private int posicionX;
     private int posicionY;
     private int turno;
+    private char figura;
+    private Color color; // color de la ficha
 
     public void agregarJugador(String n) {
         this.nombre = n;
         this.posicionX = 0;
         this.posicionY = 0;
         this.turno = 0;
+        this.figura = 'X';
+        this.color = Color.RED;
+        
     }
 
     public void mostrarFigura() {
-        System.out.println("Figura: " + nombre);
+        System.out.println("Figura: " + figura);
         System.out.println("Posicion X: " + posicionX);
         System.out.println("Posicion Y: " + posicionY);
         System.out.println("Turno: " + turno);
@@ -57,6 +58,42 @@ public class Jugadores extends TableroModelo{
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             
         }
+
+    public void setFicha(char ficha) {
+        this.figura = ficha;
+    }
+
+    public char getFicha() {
+        return figura;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public void colocarFicha(int posicionX, int posicionY, TableroModelo tablero) {
+        char[][] casillas = tablero.getCasillas();
+        char ficha = this.getFicha();
+        casillas[posicionX][posicionY] = ficha;
+        tablero.setCasillas(casillas);
+    }
+
+    public void colocarJugador(int posicionX, int posicionY) {
+        this.posicionX = posicionX;
+        this.posicionY = posicionY;
+    }
+
+    public void mostrarFiguras() {
+        System.out.println("Figura: " + figura);
+        System.out.println("Posicion X: " + posicionX);
+        System.out.println("Posicion Y: " + posicionY);
+        System.out.println("Turno: " + turno);
+        System.out.println();
+    }
 
     public Jugadores(String nombre, int posicionX, int posicionY, int turno) {
         this.nombre = nombre;
