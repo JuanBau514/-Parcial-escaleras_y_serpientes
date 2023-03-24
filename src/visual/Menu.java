@@ -7,6 +7,9 @@ package visual;
 import modelo.*;
 import javax.swing.JButton;
 import javax.swing.plaf.basic.BasicOptionPaneUI.ButtonActionListener;
+
+import controlador.controlador;
+
 import javax.swing.JOptionPane;
 
 
@@ -124,14 +127,10 @@ public class Menu extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         
-        // Pidiendole al usuario su nombre para el juego segun la cantidad de jugador seleccionada en el combobox
-        //String nombre = JOptionPane.showInputDialog("Ingrese su nombre");
-
+        // Creando el jugador
         switch (jComboBox1.getSelectedIndex()) {
             case 0:
                 agregarJugador();
-                // Agregando el jugador a la lista de jugadores en la parte inferior del tablero
-
                 break;
             case 1:
                 agregarJugador();
@@ -152,17 +151,16 @@ public class Menu extends javax.swing.JFrame {
                 break;
         }
 
-        // Colocando informacion del jugador en la parte inferior del tabler
-
-        // Iniciando el Tablero de juego
-        TableroUI tablero = new TableroUI();
-        tablero.setVisible(true);
-
+         // Iniciando el Tablero de juego
+        controlador juego = new controlador();
+        juego.iniciarJuego();
 
         // Cerrando la ventana de configuracion
         this.dispose();
 
     }//GEN-LAST:event_jButton3ActionPerformed
+
+
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {
         // Opciones de jugadores
@@ -171,9 +169,11 @@ public class Menu extends javax.swing.JFrame {
 
     public void agregarJugador() {
         String nombre = JOptionPane.showInputDialog("Ingrese su nombre");
+        TableroModelo tablero = new TableroModelo();
         Jugadores jugador = new Jugadores(nombre);
         jugador.agregarJugador(nombre);
-        jugador.mostrarInfoJugadorLabel();        
+        tablero.colocarCaracter(jugador,1,1);
+        jugador.mostrarInfoJugadorLabel();  
     }
 
     /**

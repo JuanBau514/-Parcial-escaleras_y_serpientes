@@ -1,5 +1,7 @@
 package modelo;
 
+import java.awt.Color;
+
 import javax.swing.table.AbstractTableModel;
 
 public class TableroModelo extends AbstractTableModel {
@@ -26,8 +28,40 @@ public class TableroModelo extends AbstractTableModel {
         return valores;
     }
 
-    public void colocarJugador(int x, int y) {
-        valores[x][y] = 0;
+    public void setMostrarTablero(int[][] valores) {
+        this.valores = valores;
+    }
+
+    public void colocarCaracter(Jugadores jugador, int x, int y) {
+        casillas[x][y] = jugador.getFicha();
+        jugador.setFicha('X',Color.RED);
+        fireTableCellUpdated(x, y);
+        //mostrando la ficha en el tablero
+        jugador.mostrarFicha();
+        // mostrando ficha en un lablel dentro del tablero
+        fireTableCellUpdated(x, y);
+    }
+
+    public void mostrarEscalera (int x, int y) {
+        casillas[x][y] = 'E';
+        fireTableCellUpdated(x, y);
+    }
+
+    public void mostrarSerpiente (int x, int y) {
+        casillas[x][y] = 'S';
+        fireTableCellUpdated(x, y);
+    }
+
+    public void subirEscalera(Jugadores jugador, int x, int y) {
+        casillas[x][y] = jugador.getFicha();
+        fireTableCellUpdated(x, y);
+        jugador.setFicha('X',Color.GREEN);
+    }
+
+    public void bajarSerpiente(Jugadores jugador, int x, int y) {
+        casillas[x][y] = jugador.getFicha();
+        fireTableCellUpdated(x, y);
+        jugador.setFicha('O',Color.RED);
     }
 
     public void setFilas(int filas) {

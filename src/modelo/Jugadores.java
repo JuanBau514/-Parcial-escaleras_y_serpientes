@@ -2,6 +2,7 @@ package modelo;
 import javax.swing.*;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Label;
 
 public class Jugadores extends TableroModelo{
 
@@ -59,12 +60,33 @@ public class Jugadores extends TableroModelo{
             
         }
 
-    public void setFicha(char ficha) {
+    public void setFicha(char ficha, Color color) {
         this.figura = ficha;
+        this.color = color;
     }
 
     public char getFicha() {
         return figura;
+    }
+
+    public void colocarFicha (int x, int y) {
+        this.posicionX = x;
+        this.posicionY = y;
+    }
+
+    public void mostrarFicha () {
+        // se mostrara la ficha en un label que estara dentro de la tabla
+       Label label = new Label();
+         label.setText(String.valueOf(figura));
+            label.setBackground(color);
+            label.setForeground(color);
+            label.setBounds(0, 0, 50, 50);
+            label.setVisible(true);
+            label.setAlignment(Label.CENTER);
+            label.setSize(50, 50);
+            label.setLocation(posicionX, posicionY);
+            label.setVisible(true);
+
     }
 
     public void setColor(Color color) {
@@ -73,26 +95,6 @@ public class Jugadores extends TableroModelo{
 
     public Color getColor() {
         return color;
-    }
-
-    public void colocarFicha(int posicionX, int posicionY, TableroModelo tablero) {
-        char[][] casillas = tablero.getCasillas();
-        char ficha = this.getFicha();
-        casillas[posicionX][posicionY] = ficha;
-        tablero.setCasillas(casillas);
-    }
-
-    public void colocarJugador(int posicionX, int posicionY) {
-        this.posicionX = posicionX;
-        this.posicionY = posicionY;
-    }
-
-    public void mostrarFiguras() {
-        System.out.println("Figura: " + figura);
-        System.out.println("Posicion X: " + posicionX);
-        System.out.println("Posicion Y: " + posicionY);
-        System.out.println("Turno: " + turno);
-        System.out.println();
     }
 
     public Jugadores(String nombre, int posicionX, int posicionY, int turno) {

@@ -1,7 +1,10 @@
 package visual;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.text.Position;
+
 import java.awt.BorderLayout;
+import java.awt.event.ActionListener;
 
 import modelo.Jugadores;
 import modelo.TableroModelo;
@@ -10,6 +13,7 @@ public class TableroUI extends JFrame {
 
     private JPanel panel;
     private JTable tabla;
+    private Jugadores ficha;
     private JScrollPane scrollPane;
     private JButton botonLanzarDados;
 
@@ -33,13 +37,18 @@ public class TableroUI extends JFrame {
         tabla.setTableHeader(null); // Ocultamos la cabecera de la tabla
         panel.add(scrollPane, BorderLayout.CENTER); // Añadimos el scrollpane al panel
 
-        botonLanzarDados = new JButton("Lanzar dados");
-        panel.add(botonLanzarDados, BorderLayout.SOUTH);
+        botonLanzarDados = new JButton("Lanzar dados"); // Creamos el boton de lanzar dados
+        panel.add(botonLanzarDados, BorderLayout.SOUTH); // Añadimos el boton al panel
 
-        setSize(800, 800);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
-        setVisible(true);
+        ficha = new Jugadores(); // Creamos la ficha
+        modeloTabla.colocarCaracter(ficha, 1, 1);
+        tabla.setValueAt(ficha, 0, 0); // Establecemos la ficha en la casilla inicial
+        
+
+        setSize(800, 800); // Establecemos el tamaño de la ventana
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Establecemos la operación por defecto al cerrar la ventana
+        setLocationRelativeTo(null); // Centramos la ventana en la pantalla
+        setVisible(true);// Hacemos visible la ventana
 
     }
 
@@ -57,21 +66,22 @@ public class TableroUI extends JFrame {
         infoLabel.setText("Informacion del jugador");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-    
-    // colocando el caracter en la posicion del jugador
-    public void colocarFigura(int posicionX, int posicionY) {
-        tabla.setValueAt("X", posicionX, posicionY); // colocando el caracter en la posicion del jugador
-        tabla.setValueAt("O", posicionX, posicionY + 1); // colocando el caracter en la posicion del jugador
-        tabla.setValueAt("X", posicionX, posicionY + 2); // colocando el caracter en la posicion del jugador
-        tabla.setValueAt("O", posicionX, posicionY + 3); // colocando el caracter en la posicion del jugador
+
+    // colocar la ficha en la posicion inicial
+    public void colocarFicha() {
+        ficha.colocarFicha(0, 0);
+        ficha.mostrarFicha();
+    }
+        
+    // colocar jugador en la casilla inicial
+    public void colocarJugador(Jugadores jugador) {
+        tabla.setValueAt(jugador, 0, 0);
     }
 
-    // Obtener el modelo de la tabla
-    
-    // Obtener la posición de la ficha del jugador
- 
-
-    // Actualizar el valor de la celda correspondiente
-
+    // Actualizar el turno del jugador
+    public void setTurno(int turno) {
+        // Actualizar el valor de la celda correspondiente
+        tabla.setValueAt(turno, 0, 1);
+    }
 
 }
