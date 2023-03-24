@@ -7,6 +7,8 @@ import javax.swing.table.TableCellRenderer;
 
 
 class TableroRenderer extends JLabel implements TableCellRenderer {
+
+
     public TableroRenderer() {
         setOpaque(true);
     }
@@ -32,4 +34,6 @@ class TableroRenderer extends JLabel implements TableCellRenderer {
         // Devuelve la casilla
         return this;
     }
+
+    
 }

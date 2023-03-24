@@ -127,12 +127,32 @@ public class Menu extends javax.swing.JFrame {
         // Pidiendole al usuario su nombre para el juego segun la cantidad de jugador seleccionada en el combobox
         //String nombre = JOptionPane.showInputDialog("Ingrese su nombre");
 
-        
-        
-        // Creando el jugador
+        switch (jComboBox1.getSelectedIndex()) {
+            case 0:
+                agregarJugador();
+                // Agregando el jugador a la lista de jugadores en la parte inferior del tablero
 
+                break;
+            case 1:
+                agregarJugador();
+                agregarJugador();// Creando el jugador
+                break;
+            case 2:
+                agregarJugador();
+                agregarJugador();
+                agregarJugador();
+                break;
+            case 3:
+                agregarJugador();
+                agregarJugador();// Creando el jugador
+                agregarJugador();
+                agregarJugador();
+                break;
+            default:
+                break;
+        }
 
-        // Agregando el jugador a la lista de jugadores en la parte inferior del tablero
+        // Colocando informacion del jugador en la parte inferior del tabler
 
         // Iniciando el Tablero de juego
         TableroUI tablero = new TableroUI();
@@ -140,9 +160,6 @@ public class Menu extends javax.swing.JFrame {
 
         // Cerrando la ventana de configuracion
         this.dispose();
-
-        // comprobando los jugadores seleccionados
-        
 
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -157,6 +174,7 @@ public class Menu extends javax.swing.JFrame {
         String nombre = JOptionPane.showInputDialog("Ingrese su nombre");
         Jugadores jugador = new Jugadores(nombre);
         jugador.agregarJugador(nombre);
+        jugador.mostrarInfoJugadorLabel();
     }
 
     /**

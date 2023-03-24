@@ -2,6 +2,7 @@ package visual;
 import javax.swing.*;
 import java.awt.BorderLayout;
 import modelo.TableroModelo;
+import java.awt.Frame;
 
 
 public class TableroUI extends JFrame {
@@ -41,6 +42,20 @@ public class TableroUI extends JFrame {
 
     }
 
-    
+    // Crear panel adicional para mostrar información del jugador
+    JFrame frame = new JFrame(" Ventana principal");
+    JPanel infoPanel = new JPanel(new BorderLayout());
+    JLabel infoLabel = new JLabel(" Información del jugador");
+
+    public void mostrarInfoJugador() {
+        frame.add(infoPanel);
+        infoPanel.add(infoLabel, BorderLayout.SOUTH);
+        frame.setSize(400, 400);
+        frame.setVisible(true);
+        //mostrando informacion del jugador en el panel
+        infoLabel.setText("Informacion del jugador");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+    }
     
 }

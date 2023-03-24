@@ -17,10 +17,6 @@ public class TableroModelo extends AbstractTableModel {
         }
     }
 
-    public void mostrarInfoJugador() {
-        
-    }
-
     @Override
     public int getRowCount() {
         return filas;
@@ -35,4 +31,6 @@ public class TableroModelo extends AbstractTableModel {
     public Object getValueAt(int rowIndex, int columnIndex) {
         return valores[rowIndex][columnIndex];
     }
+
+    
 }
