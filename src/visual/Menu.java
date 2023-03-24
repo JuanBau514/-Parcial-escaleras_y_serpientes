@@ -171,7 +171,6 @@ public class Menu extends javax.swing.JFrame {
         String nombre = JOptionPane.showInputDialog("Ingrese su nombre");
         TableroModelo tablero = new TableroModelo();
         Jugadores jugador = new Jugadores(nombre);
-        jugador.agregarJugador(nombre);
         tablero.colocarCaracter(jugador,1,1);
         jugador.mostrarInfoJugadorLabel();  
     }

@@ -15,9 +15,9 @@ public class Jugadores extends TableroModelo{
 
     public void agregarJugador(String n) {
         this.nombre = n;
-        this.posicionX = 0;
-        this.posicionY = 0;
-        this.turno = 0;
+        this.posicionX = 1;
+        this.posicionY = 1;
+        this.turno = 1;
         this.figura = 'X';
         this.color = Color.RED;
         
@@ -72,6 +72,7 @@ public class Jugadores extends TableroModelo{
     public void colocarFicha (int x, int y) {
         this.posicionX = x;
         this.posicionY = y;
+        mostrarFicha();
     }
 
     public void mostrarFicha () {
